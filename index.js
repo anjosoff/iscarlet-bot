@@ -3,8 +3,9 @@ const { Client, Intents, GatewayIntentBits, ActivityType, PermissionFlagsBits } 
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require("discord.js")
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const config = require("./config.json");
-
 client.login(config.token);
+
+
 
 
 
@@ -19,7 +20,10 @@ const { promisify } = require("util");
 const globPromise = promisify(glob);
 
 client.once('ready', async () => {
-    console.log(`✅ - Logado em ${client.user.username} com sucesso! Estou em ${client.guilds.cache.size} servidores!`)
+    const data = new Date();
+    data.setHours(data.getHours() - 3);
+    console.log(`[${data.getUTCHours()}:${data.getUTCMinutes()}:${data.getUTCSeconds()}] : ✅ - ${client.user.username} inciado com sucesso!`)
+    console.log(`[${data.getUTCHours()}:${data.getUTCMinutes()}:${data.getUTCSeconds()}] : 🔧 - Operando em ${client.guilds.cache.size} servidores!`)
     client.user.setPresence({
         activities: [{ name: `2 comandos para ${client.guilds.cache.size} servidores!`, type: ActivityType.Playing }],
         status: 'online',
