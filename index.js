@@ -21,8 +21,8 @@ const globPromise = promisify(glob);
 client.once('ready', async () => {
     console.log(`✅ - Logado em ${client.user.username} com sucesso! Estou em ${client.guilds.cache.size} servidores!`)
     client.user.setPresence({
-        activities: [{ name: `15 comandos para ${client.guilds.cache.size} servidores!`, type: ActivityType.Playing }],
-        status: 'idle',
+        activities: [{ name: `2 comandos para ${client.guilds.cache.size} servidores!`, type: ActivityType.Playing }],
+        status: 'online',
       });
 })
 
